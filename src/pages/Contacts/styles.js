@@ -47,8 +47,8 @@ export const ContactList = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-left: 110px;
+  margin-right: 110px;
   margin-bottom: 150px;
 `;
 
@@ -58,6 +58,7 @@ export const ListAttributes = styled.div`
   margin-bottom: 14px;
   margin-left: 10px;
   justify-content: space-between;
+  flex: 1;
 `;
 
 export const Attribute = styled.div`
@@ -74,22 +75,21 @@ export const Attribute = styled.div`
   span {
     font-weight: bold;
     color: #666666;
-    font-size: 16px;
+    font-size: 15px;
   }
 `;
 
 export const LastAttribute = styled.div`
-  display: flex;
-  margin-left: auto;
   margin-right: 10px;
+
   strong {
     font-size: 16px;
   }
 
-  span {
+  div {
     font-weight: bold;
     color: #666666;
-    font-size: 16px;
+    font-size: 15px;
   }
 `;
 
@@ -100,6 +100,7 @@ export const Contact = styled.div`
   height: 57px;
   align-items: center;
   border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 `;
 
 export const AsideContact = styled.div`
@@ -107,4 +108,5 @@ export const AsideContact = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   flex: 1;
+  justify-content: space-between;
 `;
