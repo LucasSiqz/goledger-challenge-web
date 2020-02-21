@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import { lighten } from 'polished';
 
 export const InitialContent = styled.div`
@@ -33,7 +32,7 @@ export const ButtonContent = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${lighten(0.04, '#284160')};
+      background: ${lighten(0.12, '#284160')};
     }
 
     strong {
@@ -63,19 +62,24 @@ export const ListAttributes = styled.div`
 
 export const Attribute = styled.div`
   flex: 1;
-  max-width: 319px;
+  max-width: 207px;
+  overflow: hidden;
+  margin-right: 82px;
+  text-overflow: ellipsis;
+
   strong {
     font-size: 16px;
   }
 
   span {
-    text-align: left;
+    font-weight: bold;
     color: #666666;
     font-size: 16px;
   }
 `;
 
 export const LastAttribute = styled.div`
+  display: flex;
   margin-left: auto;
   margin-right: 10px;
   strong {
@@ -83,7 +87,7 @@ export const LastAttribute = styled.div`
   }
 
   span {
-    text-align: left;
+    font-weight: bold;
     color: #666666;
     font-size: 16px;
   }
@@ -104,5 +108,3 @@ export const AsideContact = styled.div`
   margin-left: 10px;
   flex: 1;
 `;
-
-export const Scroll = styled(PerfectScrollbar)``;

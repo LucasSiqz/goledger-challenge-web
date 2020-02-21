@@ -11,7 +11,6 @@ import {
   ContactList,
   AsideContact,
   LastAttribute,
-  Scroll,
   Contact,
 } from './styles';
 
@@ -35,7 +34,7 @@ export default function Contacts() {
 
   function handleClick() {
     history.push('/new');
-    console.log(contacts);
+    // console.log(contacts);
   }
 
   return (
@@ -70,32 +69,30 @@ export default function Contacts() {
             <strong>Ações</strong>
           </LastAttribute>
         </ListAttributes>
-        <Scroll>
-          {contacts.map(contact => (
-            <Contact key={contact.name}>
-              <AsideContact>
-                <Attribute>
-                  <span>{contact.name}</span>
-                </Attribute>
-                <Attribute>
-                  <span>{contact.phone}</span>
-                </Attribute>
-                <Attribute>
-                  <span>{contact.company}</span>
-                </Attribute>
-                <Attribute>
-                  <span>{contact.email}</span>
-                </Attribute>
-                <Attribute>
-                  <span>{contact.age}</span>
-                </Attribute>
-                <LastAttribute>
-                  <div>...</div>
-                </LastAttribute>
-              </AsideContact>
-            </Contact>
-          ))}
-        </Scroll>
+        {contacts.map(contact => (
+          <Contact key={contact.name}>
+            <AsideContact>
+              <Attribute>
+                <span>{contact.name}</span>
+              </Attribute>
+              <Attribute>
+                <span>{contact.phone}</span>
+              </Attribute>
+              <Attribute>
+                <span>{contact.company}</span>
+              </Attribute>
+              <Attribute>
+                <span>{contact.email}</span>
+              </Attribute>
+              <Attribute>
+                <span>{contact.age}</span>
+              </Attribute>
+              <LastAttribute>
+                <div>...</div>
+              </LastAttribute>
+            </AsideContact>
+          </Contact>
+        ))}
       </ContactList>
     </>
   );
