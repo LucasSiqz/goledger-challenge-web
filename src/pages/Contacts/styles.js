@@ -63,9 +63,7 @@ export const ListAttributes = styled.div`
 
 export const Attribute = styled.div`
   flex: 1;
-  max-width: 207px;
   overflow: hidden;
-  margin-right: 82px;
   text-overflow: ellipsis;
 
   strong {
@@ -81,6 +79,8 @@ export const Attribute = styled.div`
 
 export const LastAttribute = styled.div`
   margin-right: 10px;
+  width: 50px;
+  text-align: right;
 
   strong {
     font-size: 16px;
@@ -97,6 +97,7 @@ export const Contact = styled.div`
   display: flex;
   background: #ffffff;
   margin-bottom: 20px;
+  overflow: hidden;
   height: 57px;
   align-items: center;
   border-radius: 4px;
@@ -105,7 +106,6 @@ export const Contact = styled.div`
 
 export const AsideContact = styled.div`
   display: flex;
-  margin-right: 10px;
   margin-left: 10px;
   flex: 1;
   justify-content: space-between;
