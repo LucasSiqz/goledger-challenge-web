@@ -3,7 +3,17 @@ import { MdAdd } from 'react-icons/md';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { InitialContent, ButtonContent, Content } from './styles';
+import {
+  InitialContent,
+  ButtonContent,
+  ListAttributes,
+  Attribute,
+  ContactList,
+  AsideContact,
+  LastAttribute,
+  Scroll,
+  Contact,
+} from './styles';
 
 export default function Contacts() {
   const [contacts, setContacts] = useState([]);
@@ -17,15 +27,15 @@ export default function Contacts() {
         selector,
       });
 
-      setContacts(response.data);
+      setContacts(response.data.result);
     }
 
     loadContacts();
   }, []);
 
   function handleClick() {
-    console.log(contacts);
     history.push('/new');
+    console.log(contacts);
   }
 
   return (
@@ -39,14 +49,54 @@ export default function Contacts() {
           </button>
         </ButtonContent>
       </InitialContent>
-      <Content>
-        <strong>Nome</strong>
-        <strong>Telefone</strong>
-        <strong>Companhia</strong>
-        <strong>Email</strong>
-        <strong>Idade</strong>
-        <strong>Ações</strong>
-      </Content>
+      <ContactList>
+        <ListAttributes>
+          <Attribute>
+            <strong>Nome</strong>
+          </Attribute>
+          <Attribute>
+            <strong>Telefone</strong>
+          </Attribute>
+          <Attribute>
+            <strong>Companhia</strong>
+          </Attribute>
+          <Attribute>
+            <strong>Email</strong>
+          </Attribute>
+          <Attribute>
+            <strong>Idade</strong>
+          </Attribute>
+          <LastAttribute>
+            <strong>Ações</strong>
+          </LastAttribute>
+        </ListAttributes>
+        <Scroll>
+          {contacts.map(contact => (
+            <Contact key={contact.name}>
+              <AsideContact>
+                <Attribute>
+                  <span>{contact.name}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.phone}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.company}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.email}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.age}</span>
+                </Attribute>
+                <LastAttribute>
+                  <div>...</div>
+                </LastAttribute>
+              </AsideContact>
+            </Contact>
+          ))}
+        </Scroll>
+      </ContactList>
     </>
   );
 }
