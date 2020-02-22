@@ -32,11 +32,10 @@ export default function Contacts() {
     }
 
     loadContacts();
-  }, [contacts]);
+  }, []);
 
   function handleClick() {
     history.push('/new');
-    // console.log(contacts);
   }
 
   return (
@@ -72,7 +71,7 @@ export default function Contacts() {
           </LastAttribute>
         </ListAttributes>
         {contacts.map(contact => (
-          <Contact key={contact.name}>
+          <Contact key={contact['@key']}>
             <AsideContact>
               <Attribute>
                 <span>{contact.name}</span>

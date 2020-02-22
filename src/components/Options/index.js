@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { MdMoreHoriz, MdEdit, MdDelete } from 'react-icons/md';
 
-import { Container, Badge, OptionsList, Option, Divisor } from './styles';
+import {
+  Container,
+  Badge,
+  Button,
+  OptionsList,
+  Option,
+  Divisor,
+} from './styles';
 
 export default function Notifications() {
   const [visible, setVisible] = useState(false);
@@ -17,13 +24,17 @@ export default function Notifications() {
       </Badge>
       <OptionsList visible={visible}>
         <Option>
-          <MdEdit color="#4D85EE" size={16} />
-          <p>Editar</p>
+          <Button onClick={() => {}}>
+            <MdEdit color="#4D85EE" size={16} />
+            <p>Editar</p>
+          </Button>
         </Option>
         <Divisor />
         <Option>
-          <MdDelete color="#DE3B3B" size={16} />
-          <p>Excluir</p>
+          <Button onClick={() => {}}>
+            <MdDelete color="#DE3B3B" size={16} />
+            <p>Excluir</p>
+          </Button>
         </Option>
       </OptionsList>
     </Container>

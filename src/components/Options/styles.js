@@ -11,6 +11,14 @@ export const Badge = styled.button`
   align-self: center;
 `;
 
+export const Button = styled.button`
+  background: none;
+  border: 0;
+  position: relative;
+  align-self: center;
+  display: flex;
+`;
+
 export const OptionsList = styled.div`
   position: absolute;
   z-index: 100;

@@ -20,11 +20,13 @@ export const Content = styled.div`
     img {
       margin-right: 20px;
       padding-right: 20px;
+      margin-left: 10px;
       border-right: 1px solid #eee;
     }
 
     a {
       font-weight: bold;
+      font-size: 20px;
       color: #284160;
     }
   }
