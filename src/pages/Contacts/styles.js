@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const InitialContent = styled.div`
-  margin-top: 10px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
   display: flex;
   align-items: center;
 
@@ -47,8 +47,8 @@ export const ContactList = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  margin-left: 110px;
-  margin-right: 110px;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 150px;
 `;
 
@@ -56,6 +56,7 @@ export const ListAttributes = styled.div`
   display: flex;
   margin-top: 30px;
   margin-bottom: 14px;
+  overflow: hidden;
   margin-left: 10px;
   justify-content: space-between;
   flex: 1;
@@ -65,6 +66,8 @@ export const Attribute = styled.div`
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  border: 0;
+  background: none;
 
   strong {
     font-size: 16px;
@@ -73,7 +76,7 @@ export const Attribute = styled.div`
   span {
     font-weight: bold;
     color: #666666;
-    font-size: 15px;
+    font-size: 16px;
   }
 `;
 
@@ -87,9 +90,10 @@ export const LastAttribute = styled.div`
   }
 
   div {
+    margin-right: 6px;
     font-weight: bold;
     color: #666666;
-    font-size: 15px;
+    align-items: center;
   }
 `;
 
@@ -97,7 +101,6 @@ export const Contact = styled.div`
   display: flex;
   background: #ffffff;
   margin-bottom: 20px;
-  overflow: hidden;
   height: 57px;
   align-items: center;
   border-radius: 4px;

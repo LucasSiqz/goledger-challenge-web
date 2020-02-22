@@ -14,6 +14,8 @@ import {
   Contact,
 } from './styles';
 
+import Options from '~/components/Options';
+
 export default function Contacts() {
   const [contacts, setContacts] = useState([]);
 
@@ -30,7 +32,7 @@ export default function Contacts() {
     }
 
     loadContacts();
-  }, []);
+  }, [contacts]);
 
   function handleClick() {
     history.push('/new');
@@ -88,7 +90,9 @@ export default function Contacts() {
                 <span>{contact.age}</span>
               </Attribute>
               <LastAttribute>
-                <div>...</div>
+                <div>
+                  <Options />
+                </div>
               </LastAttribute>
             </AsideContact>
           </Contact>
