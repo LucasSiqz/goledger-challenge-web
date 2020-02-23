@@ -4,6 +4,8 @@ import { MdAdd } from 'react-icons/md';
 import history from '~/services/history';
 import api from '~/services/api';
 
+import Options from '~/components/Options';
+
 import {
   InitialContent,
   ButtonContent,
@@ -15,8 +17,6 @@ import {
   Contact,
   LoadingSpinner,
 } from './styles';
-
-import Options from '~/components/Options';
 
 export default function Contacts() {
   const [contacts, setContacts] = useState([]);
