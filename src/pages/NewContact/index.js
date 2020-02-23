@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
@@ -9,15 +9,16 @@ import api from '~/services/api';
 import { Container, Title } from './styles';
 
 export default function NewContact() {
+  const [loading, setLoading] = useState(false);
+
   async function handleSubmmit(data) {
     try {
+      setLoading(true);
       const schema = Yup.object().shape({
         name: Yup.string().required(),
         phone: Yup.string().required(),
-        company: Yup.string().required(),
-        email: Yup.string()
-          .email()
-          .required(),
+        company: Yup.string(),
+        email: Yup.string().email(),
         age: Yup.string().required(),
       });
 
@@ -38,9 +39,11 @@ export default function NewContact() {
       });
 
       toast.success('Contato cadastrado com sucesso!');
+      setLoading(false);
       history.push('/');
     } catch (err) {
       toast.error('Erro ao cadastrar contato, Verifique os dados!');
+      setLoading(false);
     }
   }
 
@@ -54,7 +57,13 @@ export default function NewContact() {
         <Input name="email" type="email" placeholder="E-mail" />
         <Input name="age" type="number" min="0" placeholder="Idade" />
 
-        <button type="submit">Cadastrar contato</button>
+        {loading ? (
+          <button type="submit" disabled>
+            Carregando...
+          </button>
+        ) : (
+          <button type="submit">Cadastrar Contato</button>
+        )}
       </Form>
     </Container>
   );
