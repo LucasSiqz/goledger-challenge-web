@@ -18,6 +18,10 @@ export const Badge = styled.button`
   border: 0;
   position: relative;
   align-self: center;
+
+  &:hover {
+    background: ${darken(0.02, '#fff')};
+  }
 `;
 
 export const Button = styled.button`
