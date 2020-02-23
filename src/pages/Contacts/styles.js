@@ -15,7 +15,9 @@ export const InitialContent = styled.div`
   }
 `;
 
-export const LoadingSpinner = styled(CircularProgress)`
+export const LoadingSpinner = styled(CircularProgress).attrs({
+  size: 40,
+})`
   display: flex;
   margin-top: 100px;
   margin-left: 50%;
