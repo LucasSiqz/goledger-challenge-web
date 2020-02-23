@@ -110,6 +110,7 @@ export const Contact = styled.div`
   display: flex;
   background: #ffffff;
   margin-bottom: 20px;
+  overflow: hidden;
   height: 57px;
   align-items: center;
   border-radius: 4px;
