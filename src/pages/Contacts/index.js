@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
+
 import history from '~/services/history';
 import api from '~/services/api';
 
@@ -36,6 +37,17 @@ export default function Contacts() {
 
   function handleClick() {
     history.push('/new');
+  }
+
+  async function updateList() {
+    const selector = {
+      '@assetType': 'contact',
+    };
+    const response = await api.post('search', {
+      selector,
+    });
+
+    setContacts(response.data.result);
   }
 
   return (
@@ -90,7 +102,7 @@ export default function Contacts() {
               </Attribute>
               <LastAttribute>
                 <div>
-                  <Options />
+                  <Options contact={contact} updateList={updateList} />
                 </div>
               </LastAttribute>
             </AsideContact>

@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { MdMoreHoriz, MdEdit, MdDelete } from 'react-icons/md';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+
+import api from '~/services/api';
 
 import {
   Container,
@@ -10,11 +14,31 @@ import {
   Divisor,
 } from './styles';
 
-export default function Notifications() {
+export default function Options({ contact, updateList }) {
   const [visible, setVisible] = useState(false);
 
   function handleToggleVisible() {
     setVisible(!visible);
+  }
+
+  async function handleClickDelete(item) {
+    try {
+      const { name } = item;
+      const data = {
+        '@assetType': 'contact',
+        name,
+      };
+
+      await api.delete('delete', {
+        data,
+      });
+
+      toast.success('Contato excluido com sucesso!');
+
+      updateList();
+    } catch (err) {
+      toast.error('Erro ao excluir contato!');
+    }
   }
 
   return (
@@ -31,7 +55,11 @@ export default function Notifications() {
         </Option>
         <Divisor />
         <Option>
-          <Button onClick={() => {}}>
+          <Button
+            onClick={() => {
+              handleClickDelete(contact);
+            }}
+          >
             <MdDelete color="#DE3B3B" size={16} />
             <p>Excluir</p>
           </Button>
@@ -40,3 +68,13 @@ export default function Notifications() {
     </Container>
   );
 }
+
+Options.propTypes = {
+  contact: PropTypes.object,
+  updateList: PropTypes.func,
+};
+
+Options.defaultProps = {
+  contact: {},
+  updateList: () => {},
+};
