@@ -1,7 +1,16 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const Container = styled.div`
   position: relative;
+`;
+
+export const LoadingSpinner = styled(CircularProgress).attrs({
+  size: 16,
+})`
+  display: flex;
+  margin-left: 50%;
 `;
 
 export const Badge = styled.button`
@@ -17,6 +26,11 @@ export const Button = styled.button`
   position: relative;
   align-self: center;
   display: flex;
+  flex: 1;
+
+  &:hover {
+    background: ${darken(0.02, '#fff')};
+  }
 `;
 
 export const OptionsList = styled.div`
@@ -28,7 +42,9 @@ export const OptionsList = styled.div`
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  padding: 15px 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
   display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {

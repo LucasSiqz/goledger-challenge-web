@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const InitialContent = styled.div`
   margin-top: 20px;
@@ -12,6 +13,12 @@ export const InitialContent = styled.div`
     margin: 0 0;
     font-size: 20px;
   }
+`;
+
+export const LoadingSpinner = styled(CircularProgress)`
+  display: flex;
+  margin-top: 100px;
+  margin-left: 50%;
 `;
 
 export const ButtonContent = styled.div`

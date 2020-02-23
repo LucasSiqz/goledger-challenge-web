@@ -13,15 +13,18 @@ import {
   AsideContact,
   LastAttribute,
   Contact,
+  LoadingSpinner,
 } from './styles';
 
 import Options from '~/components/Options';
 
 export default function Contacts() {
   const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadContacts() {
+      setLoading(true);
       const selector = {
         '@assetType': 'contact',
       };
@@ -30,6 +33,7 @@ export default function Contacts() {
       });
 
       setContacts(response.data.result);
+      setLoading(false);
     }
 
     loadContacts();
@@ -40,6 +44,7 @@ export default function Contacts() {
   }
 
   async function updateList() {
+    setLoading(true);
     const selector = {
       '@assetType': 'contact',
     };
@@ -48,6 +53,7 @@ export default function Contacts() {
     });
 
     setContacts(response.data.result);
+    setLoading(false);
   }
 
   return (
@@ -61,54 +67,58 @@ export default function Contacts() {
           </button>
         </ButtonContent>
       </InitialContent>
-      <ContactList>
-        <ListAttributes>
-          <Attribute>
-            <strong>Nome</strong>
-          </Attribute>
-          <Attribute>
-            <strong>Telefone</strong>
-          </Attribute>
-          <Attribute>
-            <strong>Companhia</strong>
-          </Attribute>
-          <Attribute>
-            <strong>Email</strong>
-          </Attribute>
-          <Attribute>
-            <strong>Idade</strong>
-          </Attribute>
-          <LastAttribute>
-            <strong>Ações</strong>
-          </LastAttribute>
-        </ListAttributes>
-        {contacts.map(contact => (
-          <Contact key={contact['@key']}>
-            <AsideContact>
-              <Attribute>
-                <span>{contact.name}</span>
-              </Attribute>
-              <Attribute>
-                <span>{contact.phone}</span>
-              </Attribute>
-              <Attribute>
-                <span>{contact.company}</span>
-              </Attribute>
-              <Attribute>
-                <span>{contact.email}</span>
-              </Attribute>
-              <Attribute>
-                <span>{contact.age}</span>
-              </Attribute>
-              <LastAttribute>
-                <div>
-                  <Options contact={contact} updateList={updateList} />
-                </div>
-              </LastAttribute>
-            </AsideContact>
-          </Contact>
-        ))}
-      </ContactList>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <ContactList>
+          <ListAttributes>
+            <Attribute>
+              <strong>Nome</strong>
+            </Attribute>
+            <Attribute>
+              <strong>Telefone</strong>
+            </Attribute>
+            <Attribute>
+              <strong>Companhia</strong>
+            </Attribute>
+            <Attribute>
+              <strong>Email</strong>
+            </Attribute>
+            <Attribute>
+              <strong>Idade</strong>
+            </Attribute>
+            <LastAttribute>
+              <strong>Ações</strong>
+            </LastAttribute>
+          </ListAttributes>
+          {contacts.map(contact => (
+            <Contact key={contact['@key']}>
+              <AsideContact>
+                <Attribute>
+                  <span>{contact.name}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.phone}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.company}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.email}</span>
+                </Attribute>
+                <Attribute>
+                  <span>{contact.age}</span>
+                </Attribute>
+                <LastAttribute>
+                  <div>
+                    <Options contact={contact} updateList={updateList} />
+                  </div>
+                </LastAttribute>
+              </AsideContact>
+            </Contact>
+          ))}
+        </ContactList>
+      )}
     </>
   );
 }

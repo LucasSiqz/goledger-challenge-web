@@ -13,10 +13,12 @@ import {
   OptionsList,
   Option,
   Divisor,
+  LoadingSpinner,
 } from './styles';
 
 export default function Options({ contact, updateList }) {
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleToggleVisible() {
     setVisible(!visible);
@@ -24,12 +26,12 @@ export default function Options({ contact, updateList }) {
 
   async function handleClickDelete(item) {
     try {
+      setLoading(true);
       const { name } = item;
       const data = {
         '@assetType': 'contact',
         name,
       };
-
       await api.delete('delete', {
         data,
       });
@@ -37,8 +39,10 @@ export default function Options({ contact, updateList }) {
       toast.success('Contato excluido com sucesso!');
 
       updateList();
+      setLoading(false);
     } catch (err) {
       toast.error('Erro ao excluir contato!');
+      setLoading(false);
     }
   }
 
@@ -64,14 +68,18 @@ export default function Options({ contact, updateList }) {
         </Option>
         <Divisor />
         <Option>
-          <Button
-            onClick={() => {
-              handleClickDelete(contact);
-            }}
-          >
-            <MdDelete color="#DE3B3B" size={16} />
-            <p>Excluir</p>
-          </Button>
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <Button
+              onClick={() => {
+                handleClickDelete(contact);
+              }}
+            >
+              <MdDelete color="#DE3B3B" size={16} />
+              <p>Excluir</p>
+            </Button>
+          )}
         </Option>
       </OptionsList>
     </Container>
