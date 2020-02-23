@@ -10,6 +10,7 @@ import Contacts from '~/pages/Contacts';
 import NewContact from '~/pages/NewContact';
 
 import DefaultLayout from '~/pages/_layouts/default';
+import EditContact from './pages/EditContact';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Switch>
         <DefaultLayout>
           <Route path="/" exact component={Contacts} />
-          <Route path="/new" exact component={NewContact} />
+          <Route path="/new" component={NewContact} />
+          <Route path="/update" component={EditContact} />
         </DefaultLayout>
       </Switch>
       <GlobalStyle />

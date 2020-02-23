@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import {
   Container,
@@ -41,6 +42,10 @@ export default function Options({ contact, updateList }) {
     }
   }
 
+  function handleClickEdit() {
+    history.push('/update', { contact });
+  }
+
   return (
     <Container>
       <Badge onClick={handleToggleVisible}>
@@ -48,7 +53,11 @@ export default function Options({ contact, updateList }) {
       </Badge>
       <OptionsList visible={visible}>
         <Option>
-          <Button onClick={() => {}}>
+          <Button
+            onClick={() => {
+              handleClickEdit();
+            }}
+          >
             <MdEdit color="#4D85EE" size={16} />
             <p>Editar</p>
           </Button>
