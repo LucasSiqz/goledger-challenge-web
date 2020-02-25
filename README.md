@@ -6,6 +6,9 @@
 </h1>
 
 ---
+<img alt="demo" title="demo" src="https://github.com/LucasSiqz/goledger-challenge-web/blob/master/demo.gif" width="844px" />
+
+---
 
 ## Description
 
