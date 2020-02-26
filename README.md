@@ -6,6 +6,9 @@
 </h1>
 
 ---
+<img alt="demo" title="demo" src="https://github.com/LucasSiqz/goledger-challenge-web/blob/master/demo.gif" width="882px" />
+
+---
 
 ## Description
 
@@ -20,7 +23,7 @@ A simple web interface to a phonebook blockchain application.
 - [Axios](https://github.com/axios/axios)
 - [Polished](https://polished.js.org/)
 - [History](https://www.npmjs.com/package/history)
-- [react-toastify](https://fkhadra.github.io/react-toastify/)
+- [React-toastify](https://fkhadra.github.io/react-toastify/)
 - [Yup](https://www.npmjs.com/package/yup)
 - [React-icons](http://react-icons.github.io/react-icons/)
 - [VS Code](https://code.visualstudio.com/) with [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) and [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
