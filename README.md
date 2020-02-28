@@ -18,6 +18,7 @@ A simple web interface to a phonebook blockchain application.
 
 ## Some used technologies
 
+- [React](https://reactjs.org/)
 - [Unform](https://github.com/Rocketseat/unform)
 - [Styled-components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
@@ -26,6 +27,7 @@ A simple web interface to a phonebook blockchain application.
 - [React-toastify](https://fkhadra.github.io/react-toastify/)
 - [Yup](https://www.npmjs.com/package/yup)
 - [React-icons](http://react-icons.github.io/react-icons/)
+- [Prop-types](https://www.npmjs.com/package/prop-types)
 - [VS Code](https://code.visualstudio.com/) with [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) and [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ---
