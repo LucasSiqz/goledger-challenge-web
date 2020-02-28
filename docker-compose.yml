@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  goledger-challenge-web:
+    container_name: goledger-challenge-web
+    build: .
+    command: bash -c "yarn && yarn start"
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app

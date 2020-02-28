@@ -6,6 +6,7 @@
 </h1>
 
 ---
+
 <img alt="demo" title="demo" src="https://github.com/LucasSiqz/goledger-challenge-web/blob/master/demo.gif" width="882px" />
 
 ---
@@ -42,6 +43,8 @@ Go into the repository:
 
 > \$ cd goledger-challenge-web
 
+- Its necessary to have yarn package or docker and dockercompose installed
+
 Install dependencies:
 
 > \$ yarn
@@ -49,6 +52,14 @@ Install dependencies:
 Run Application:
 
 > \$ yarn start
+
+Or run with docker:
+
+> \$ docker-compose up
+
+:
+
+> http://localhost:3000
 
 ---
 
