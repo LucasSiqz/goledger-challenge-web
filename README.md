@@ -43,7 +43,7 @@ Go into the repository:
 
 > \$ cd goledger-challenge-web
 
-- Its necessary to have yarn package or docker and dockercompose installed
+- Its necessary to have yarn package or docker and docker-compose installed
 
 Install dependencies:
 
