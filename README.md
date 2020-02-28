@@ -57,7 +57,7 @@ Or run with docker:
 
 > \$ docker-compose up
 
-:
+Application is running on port 3000:
 
 > http://localhost:3000
 
